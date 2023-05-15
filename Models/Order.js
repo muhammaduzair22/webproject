@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 
 const OrderSchema = mongoose.Schema({
-    customerName: {
+    customerid: {
         type: String,
         required: true
     },
@@ -10,33 +10,18 @@ const OrderSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    orderItems: [
-     {
-        foodItem: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'FoodItem',
-        required: true
-      },
-      quantity: {
-        type: Number,
-        required: true
-      }
-     }
+    itemid: [
+        {
+            type: String,
+            required: true
+        }
     ],
-    totalAmount: {
-        type: Number,
-        required: true
-    },
     status: {
         type: String,
         enum: ['Pending', 'Preparing', 'Out for Delivery', 'Delivered', 'Cancelled'],
         default: 'Pending'
     },
     createdAt: {
-    type: Date,
-    default: Date.now
-    },
-    updatedAt: {
         type: Date,
         default: Date.now
     }

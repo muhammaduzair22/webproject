@@ -11,9 +11,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const userRouter = require("./Routes/userRoutes");
+const orderRouter = require("./Routes/orderRoutes");
+
 
 app.use('/user', userRouter)
-
+app.use('/order', orderRouter)
 
 app.listen(process.env.PORT, () => {
     console.log(`App Listning at Port ${process.env.PORT}`)
